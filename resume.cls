@@ -1,8 +1,8 @@
 \LoadClass[14pt]{extreport}
 
 \usepackage{ifthen}
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
+% \usepackage[english]{babel} % kotex handles language settings
+% \usepackage[utf8x]{inputenc} % Not needed with XeLaTeX/LuaLaTeX, which kotex requires
 \usepackage{geometry}
 \usepackage{array}
 \usepackage{enumitem}
@@ -14,6 +14,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{newtxtext}
+\usepackage{kotex}
 
 \setlist[itemize]{leftmargin=*}
 % \setmainfont{DIN}
@@ -45,7 +46,16 @@
         }
     }
 }{}
-
+% Defines a custom subsection for publications with indentation and a horizontal rule
+\newcommand{\pubsubsection}[1]{%
+  \par\vspace{0.5em}%
+  \noindent\hspace{1em}%
+  \parbox[t]{\dimexpr\linewidth-1em}{%
+    {\bfseries #1}\\[-7pt]
+    \rule{\linewidth}{0.4pt}
+  }%
+  \par\vspace{0.5em}%
+}
 % \skill{<skill name>}{<level 1-5>}
 \newcommand{\skill}[2]{
     \makebox[24em][l]{#1}
